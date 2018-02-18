@@ -1,4 +1,2 @@
-interface Reservation {
-    fun getFlight(flight: Int): Flight
-
+class Reserve {
 }
