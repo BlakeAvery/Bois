@@ -14,7 +14,7 @@ data class Flight(private val flightNumber: Short, private var seatsOpen: Int, p
     }
     fun setSeatsOpen(param: Int) {
         if(seatsOpen - param < 0) {
-            print("This amount of seats is not available.")
+            println("This amount of seats is not available.")
         } else {
             seatsOpen -= param
         }
@@ -23,6 +23,9 @@ data class Flight(private val flightNumber: Short, private var seatsOpen: Int, p
         aircraftType = param
     }
     fun setPrice(param: Float) {
-        
+        price = param
+    }
+    override fun toString(): String {
+        return "Vestoria Flight $flightNumber has $seatsOpen seats open, on the " + (aircraftType.getAircraftType()) + ", with a current price of $price."
     }
 }
