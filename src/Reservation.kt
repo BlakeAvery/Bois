@@ -1,32 +1,46 @@
 class Reservation: Reserve {
-    var returnGrabber: Int = 0 //This is the var that controls which array list item to grab pretty much
     override fun getFlight(flight: Short, list: ArrayList<Flight>): Flight {
-        var flightFound: Boolean = true
+        var returnGrabber: Int = 0 //This is the var that controls which array list item to grab pretty much
+        //var flightFound: Boolean = true //Bugged implementation, figure out later
         var returner: Flight
         for(x in 0 until list.size) {
             val iteration = list[x]
-            //println(iteration.getFlightNumber())
             val flightNum = iteration.getFlightNumber()
             if(flight == flightNum) {
                 returnGrabber = x
-                flightFound = true
-            } else flightFound = false
+                //flightFound = true
+            } //else flightFound = false
         }
-        //TODO: You think there's a way to create a null plane object?
-        if(flightFound) returner = list[returnGrabber]
-        else returner = Flight(0, 0, Plane("Boeing 404 - Plane not found", 0, 0), 0.toFloat())
+        returner = list[returnGrabber]
+        //else Flight(0, 0, Plane("Boeing 404 - Plane not found", 0, 0), 0.toFloat(), "Nowhere", "Nowhere")
         return returner
+    }
+
+    override fun flightIndex(flight: Short, list: ArrayList<Flight>): Int { //basically getFlight but returns an index of the list
+        var returnGrabber: Int = 0 //This is the var that controls which array list item to grab pretty much
+        //var flightFound: Boolean = true //Bugged implementation, figure out later
+        for(x in 0 until list.size) {
+            val iteration = list[x]
+            val flightNum = iteration.getFlightNumber()
+            if(flight == flightNum) {
+                returnGrabber = x
+                //flightFound = true
+            } //else flightFound = false
+        }
+        /*if(flightFound)*/ return returnGrabber
+        //else throw IllegalArgumentException("Flight could not be found.")
     }
 
     override fun bookFlight(seats: Int, flight: Short, list: ArrayList<Flight>): ArrayList<Flight> {
         var booked = getFlight(flight, list)
+        val index = flightIndex(flight, list)
         val currentSeats = booked.getSeatsOpen()
         booked.setSeatsOpen(seats)
-        if(currentSeats != booked.getSeatsOpen()) booked.setPrice((booked.getPrice() + 2))
+        if(currentSeats != booked.getSeatsOpen()) booked.setPrice((booked.getPrice() + (seats.toFloat() / 2.0F * 5.0F)))
         else {
             println("Flight not successfully booked.")
         }
-        list[returnGrabber] = booked
+        list[index] = booked
         return list
     }
 }

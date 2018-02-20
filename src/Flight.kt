@@ -1,4 +1,4 @@
-data class Flight(private val flightNumber: Short, private var seatsOpen: Int, private var aircraftType: Plane, private var price: Float) {
+data class Flight(private val flightNumber: Short, private var seatsOpen: Int, private var aircraftType: Plane, private var price: Float, private val origin: String, private val destination: String) {
     // Have fun with that unnecessarily long constructor up there ^
     fun getFlightNumber(): Short {
         return flightNumber
@@ -26,6 +26,6 @@ data class Flight(private val flightNumber: Short, private var seatsOpen: Int, p
         price = param
     }
     override fun toString(): String {
-        return "Vestoria Flight $flightNumber has $seatsOpen seats open, on the " + (aircraftType.getAircraftType()) + ", with a current price of $price."
+        return "Vestoria Flight $flightNumber: From $origin to $destination on an " + aircraftType.getAircraftType() + ". $seatsOpen seats available. Price: $$price."
     }
 }
