@@ -43,4 +43,8 @@ class Reservation: Reserve {
         list[index] = booked
         return list
     }
+
+    override fun newFlight(flightnum: Short, aircraft: Plane, price: Float, origin: String, dest: String): Flight {
+        return Flight(flightnum, aircraft.getSeats().toInt(), aircraft, price, origin, dest)
+    }
 }

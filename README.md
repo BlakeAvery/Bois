@@ -11,11 +11,8 @@ print out the list of flights.
 
 **What needs to be fixed?**
 
-Currently, if the flight is not found, the program returns the first
-flight in the list. This was not the original behavior. A bug in the
-thingy that checked if the flight was found resulted in the program 
-returning a generic empty object for everything other than the last
-flight in the list. So that's one.
+The project needs some major code refactoring, MAJOR REFACTORING. I'll get to that
+eventually.
 
 **License**
 
