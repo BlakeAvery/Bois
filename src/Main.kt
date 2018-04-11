@@ -24,7 +24,7 @@ fun main(args: Array<String>) {
         val dest = bussy[(Math.random() * 16).toInt()]
         if(defaultCost < 150.00) {
             flightList.add(x, Flight(flightnumber, CRJ700.getSeats().toInt(), CRJ700, defaultCost, origin, dest))
-        } else if(defaultCost < 300.00) {
+        } else if(defaultCost < 400.00) {
             flightList.add(x, Flight(flightnumber, A320.getSeats().toInt(), A320, defaultCost, origin, dest))
         } else {
             flightList.add(x, Flight(flightnumber, Boing.getSeats().toInt(), Boing, defaultCost, origin, dest))

@@ -5,9 +5,9 @@ program designs.
 
 **What does this do?**
 
-The program should generate a list of flights. You can then do 3 
-things: Search for a flight, book a number of seats on a flight, or
-print out the list of flights.
+The program should generate a list of flights. You can then do 4
+things: Search for a flight, book a number of seats on a flight,
+print out the list of flights, or add a new flight to the list.
 
 **What needs to be fixed?**
 

@@ -36,7 +36,10 @@ class Reservation: Reserve {
         val index = flightIndex(flight, list)
         val currentSeats = booked.getSeatsOpen()
         booked.setSeatsOpen(seats)
-        if(currentSeats != booked.getSeatsOpen()) booked.setPrice((booked.getPrice() + (seats.toFloat() / 2.0F * 5.0F)))
+        if(currentSeats != booked.getSeatsOpen()) {
+            booked.setPrice((booked.getPrice() + (seats.toFloat() / 2.0F * 5.0F)))
+            println(list[index])
+        }
         else {
             println("Flight not successfully booked.")
         }
